@@ -1,0 +1,6 @@
+{
+    "name"   : "Uploader",
+    "version": "0.0.1",
+    "author" : "serenader",
+    "main"   : "dist/uploader.min.js"
+}

@@ -10,6 +10,7 @@ import browserify  from 'browserify';
 import watchify    from 'watchify';
 import babel       from 'babelify';
 import uglify      from 'gulp-uglify';
+import shell       from 'gulp-shell';
 
 const dir = {
     dist: path.resolve(__dirname, 'dist'),
@@ -54,6 +55,8 @@ gulp.task('watch', () => {
 gulp.task('reload', () => {
     browserSync.reload();
 });
+
+gulp.task('server', ['serve'], shell.task('node server/index.js'));
 
 gulp.task('serve', ['watch'], () => {
     browserSync.init({

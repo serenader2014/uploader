@@ -28,7 +28,6 @@
         },
         multiple: true,
     });
-    // u.bind(btn);
     u.addData('haha', 'yoyoyoyoyo');
     u.on('upload.success', function (data) {
         var imgs = data.data;
@@ -53,29 +52,11 @@
                     arr.push(input.files[i]);
                 }
             }
-            // var u = new Uploader({
-            //     url: 'http://localhost:8888/upload',
-            //     params: {
-            //         m: 'C',
-            //         pub: 1,
-            //         picType: 2
-            //     },
-            //     formData: {
-            //         haha: 'hahahahaahah'
-            //     },
-            //     multiple: true,
-            //     auto: true,
-            //     files: arr,
-            // });
-            // u.on('upload.error', function () {
-            //     console.log('ee');
-            // })
-            u.addFile('file', input.files[0], input.files[0].name);
+            u.files = arr;
             console.log(u);
         }
     });
     btn.addEventListener('click', function () {
-        // console.log(u.files);
         u.start();
     });
     </script>

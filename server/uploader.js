@@ -42,8 +42,12 @@ let rename = (oldPath, newPath) => {
     }
 };
 
-app.all('/upload', (req, res) => {
+app.all('/upload', (req, res, next) => {
     res.set('Access-Control-Allow-Origin', '*');
+    next();
+});
+
+app.post('/upload', (req, res) => {
     let form = new formidable.IncomingForm();
     let dirs = [];
     form.uploadDir = path.resolve(__dirname, '..', 'data');

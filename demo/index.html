@@ -16,6 +16,7 @@
     var content = document.querySelector('.imgs');
     var progress = document.querySelector('.progress');
     var domain = 'http://localhost:8888';
+    /* globals Uploader */
     var u = new Uploader({
         url: domain + '/upload',
         params: {
@@ -38,13 +39,14 @@
             content.appendChild(img);
         });
     }).on('upload.progress', function (event, percent) {
+        console.log('progress');
         progress.innerHTML = percent;
     }).on('upload.start', function () {
         console.log('start');
     }).on('upload.addFile', function (f) {
-        console.log('add file', f)
+        console.log('add file', f);
     });
-    input.addEventListener('change', function (event) {
+    input.addEventListener('change', function () {
         if (input.files.length) {
             var arr = [];
             for (var i in input.files) {

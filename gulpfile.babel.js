@@ -70,4 +70,4 @@ gulp.task('serve', ['watch'], () => {
     });
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['server']);

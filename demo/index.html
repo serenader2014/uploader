@@ -19,48 +19,44 @@
     /* globals Uploader */
     var u = new Uploader({
         url: domain + '/upload',
-        params: {
-            m: 'C',
-            pub: 1,
-            picType: 2
-        },
         formData: {
             haha: 'hahahahaahah'
         },
         multiple: true,
     });
-    u.addData('haha', 'yoyoyoyoyo');
-    u.on('upload.success', function (data) {
-        var imgs = data.data;
-        imgs.forEach(function (item) {
-            var img = document.createElement('img');
-            img.setAttribute('src', domain + item);
-            img.style.width = '300px';
-            content.appendChild(img);
-        });
-    }).on('upload.progress', function (event, percent) {
-        console.log('progress');
-        progress.innerHTML = percent;
-    }).on('upload.start', function () {
-        console.log('start');
-    }).on('upload.addFile', function (f) {
-        console.log('add file', f);
-    });
-    input.addEventListener('change', function () {
-        if (input.files.length) {
-            var arr = [];
-            for (var i in input.files) {
-                if (input.files.hasOwnProperty(i)) {
-                    arr.push(input.files[i]);
-                }
-            }
-            u.files = arr;
-            console.log(u);
-        }
-    });
-    btn.addEventListener('click', function () {
-        u.start();
-    });
+    u.bind(btn);
+    // u.addData('haha', 'yoyoyoyoyo');
+    // u.on('upload.success', function (data) {
+    //     var imgs = data.data;
+    //     imgs.forEach(function (item) {
+    //         var img = document.createElement('img');
+    //         img.setAttribute('src', domain + item);
+    //         img.style.width = '300px';
+    //         content.appendChild(img);
+    //     });
+    // }).on('upload.progress', function (event, percent) {
+    //     console.log('progress');
+    //     progress.innerHTML = percent;
+    // }).on('upload.start', function () {
+    //     console.log('start');
+    // }).on('upload.addFile', function (f) {
+    //     console.log('add file', f);
+    // });
+    // input.addEventListener('change', function () {
+    //     if (input.files.length) {
+    //         var arr = [];
+    //         for (var i in input.files) {
+    //             if (input.files.hasOwnProperty(i)) {
+    //                 arr.push(input.files[i]);
+    //             }
+    //         }
+    //         u.files = arr;
+    //         console.log(u);
+    //     }
+    // });
+    // btn.addEventListener('click', function () {
+    //     u.start();
+    // });
     </script>
 </body>
 </html>
